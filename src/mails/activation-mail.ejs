@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Learnaray Activation Email</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	</head>
+	<body
+		style="
+			margin: 0;
+			padding: 0;
+			min-width: 100%;
+			font-family: 'Roboto', sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			background-color: rgb(209, 213, 219);
+			color: rgb(31, 41, 55);
+		">
+		<main>
+			<header
+				style="
+					background-color: rgb(67, 56, 202);
+					color: #fff;
+					padding-top: 1rem;
+					padding-bottom: 3rem;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					gap: 1rem;
+				">
+				<img
+					src="https://cdn-icons-png.flaticon.com/128/32/32354.png"
+					alt="book icon"
+					style="width: 40px; height: 40px" />
+				<h1 style="font-size: 25px; margin: 0">Learnaray</h1>
+			</header>
+			<article
+				style="
+					background-color: #fff;
+					width: 80vw;
+					margin: 0 auto;
+					padding: 3rem;
+					border-radius: 10px;
+					box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				">
+				<p
+					style="
+						font-size: 25px;
+						color: rgb(30, 27, 75);
+						padding-bottom: 1.5rem;
+						border-bottom: 1px solid rgb(107, 114, 128);
+					">
+					Verify Your Email Address
+				</p>
+				<p style="padding-block: 0.5rem">
+					Hi <%= user.name.split(" ")[0] %>,
+				</p>
+				<p>
+					Congratulations! You're almost set to start using Learnaray
+					eLearning platform. Just copy the activation code below to
+					validate your email address.
+				</p>
+				<h2
+					style="
+						font-size: 25px;
+						padding-block: 2rem;
+						color: rgb(67, 56, 202);
+						border-bottom: 1px solid rgb(107, 114, 128);
+						text-align: center;
+					">
+					<%= activationCode %>
+				</h2>
+				<p style="padding: 1rem 0 2rem 0">
+					You need to perform this validation within the next 5
+					minutes to start using Learnaray. <br /><span
+						style="color: rgb(225, 29, 72)"
+						>If you did not register for Learnaray account, please
+						ignore this email.</span
+					>
+				</p>
+			</article>
+			<footer style="text-align: center; padding-top: 2rem">
+				<div style="margin-top: 1rem">
+					<p
+						style="
+							font-size: medium;
+							color: rgb(156, 163, 175);
+							margin: 0;
+						">
+						&copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						Learnaray All rights reserved
+					</p>
+					<p style="margin: 0.5rem 0; padding-bottom: 2rem">
+						<a
+							href="mailto:dummy1215225@gmail.com"
+							style="
+								color: rgb(37, 99, 235);
+								text-decoration: none;
+								margin-right: 10px;
+							"
+							>Contact Us</a
+						>
+						<span style="color: rgb(37, 99, 235)"> | </span>
+						<a
+							href="mailto:dummy1215225@gmail.com"
+							style="
+								color: rgb(37, 99, 235);
+								text-decoration: none;
+								margin-left: 10px;
+							"
+							>Join Our Community</a
+						>
+					</p>
+				</div>
+			</footer>
+		</main>
+	</body>
+</html>
