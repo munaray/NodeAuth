@@ -48,11 +48,8 @@ const UserSchema: Schema<UserTypes> = new mongoose.Schema(
 			type: Boolean,
 			default: false,
 		},
-		courses: [
-			{
-				courseId: String,
-			},
-		],
+		resetPasswordToken: { type: String },
+		resetPasswordExpire: { type: Date },
 	},
 	{ timestamps: true }
 );

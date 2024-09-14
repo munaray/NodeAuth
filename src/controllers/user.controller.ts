@@ -35,14 +35,18 @@ export const userRegistration = CatchAsyncError(
 		next: NextFunction
 	) => {
 		try {
-			const { name, email, password } = request.body;
+			const { name, email, password, confirmPassword } = request.body;
+
+			if (password !== confirmPassword) {
+				return next(new ErrorHandler("Passwords do not match", 400));
+			}
 
 			const isEmailExist = await User.findOne({ email });
 			if (isEmailExist) {
 				return next(new ErrorHandler("Email already exist", 400));
 			}
 
-			const user = { name, email, password };
+			const user = { name, email, password, confirmPassword };
 
 			const activationToken = createActivationToken(user);
 
@@ -109,14 +113,14 @@ export const activateUser = CatchAsyncError(
 			const data = { name: name };
 			await mailSender({
 				email: email,
-				subject: "Welcome to Learnaray",
+				subject: "Welcome to NodeAuth",
 				template: "welcome-mail.ejs",
 				data,
 			});
 
 			response.status(201).send({
 				success: true,
-				message: "User activated successfully",
+				message: `User activated successfully, Please check your email: ${email} to read the welcome mail`,
 			});
 		} catch (error: any) {
 			return next(new ErrorHandler(error.message, 400));

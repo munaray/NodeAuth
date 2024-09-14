@@ -11,16 +11,18 @@ export interface UserTypes extends Document {
 	};
 	role: string;
 	isVerified: boolean;
-	courses: Array<{ courseId: string }>;
 	comparePassword: (plain: string) => Promise<boolean>;
 	SignAccessToken: () => string;
 	SignRefreshToken: () => string;
+	resetPasswordToken: string;
+	resetPasswordExpire: Date;
 }
 
 export interface RegistrationData {
 	name: string;
 	email: string;
 	password: string;
+	confirmPassword: string;
 	avatar?: string;
 }
 
