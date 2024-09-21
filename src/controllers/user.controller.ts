@@ -207,7 +207,7 @@ export const forgetPassword = CatchAsyncError(
 				.digest("hex");
 
 			user.resetPasswordToken = hashedResetToken;
-			user.resetPasswordExpire = new Date(Date.now() + 15 * 60 * 1000);
+			user.resetPasswordExpire = new Date(Date.now() + 15 * 60 * 1000); // 15min
 
 			await user.save({ validateBeforeSave: false });
 
@@ -237,6 +237,13 @@ export const forgetPassword = CatchAsyncError(
 		}
 	}
 );
+
+export const resetPassword = CatchAsyncError(
+	async (request: Request<any, {}, UserTypes>, response: Response, next: NextFunction) => {
+
+
+	}
+)
 
 // update access token
 
