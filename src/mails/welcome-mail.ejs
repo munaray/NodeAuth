@@ -1,95 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<title>NodeAuth Welcome Page</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>NodeAuth Welcome Email</title>
+		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	</head>
-	<body
-		style="
-			margin: 0;
-			padding: 0;
-			min-width: 100%;
-			font-family: 'Roboto', sans-serif;
-			font-size: 16px;
-			line-height: 1.5;
-			background-color: rgb(209, 213, 219);
-			color: rgb(31, 41, 55);
-		">
+	<body style="margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; background-color: rgb(209, 213, 219); color: rgb(31, 41, 55)">
 		<main>
-			<header
-				style="
-					background-color: rgb(67, 56, 202);
-					color: #fff;
-					padding-top: 1rem;
-					padding-bottom: 3rem;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					gap: 1rem;
-                    margin: 0 auto;
-				">
-				<img
-					src="https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000"
-					alt="nodejs icon"
-					style="width: 40px; height: 40px;" />
-				<h1 style="font-size: 25px; margin: 0;">NodeAuth</h1>
-			</header>
-			<article
-				style="
-					background-color: #fff;
-					width: 80vw;
-					margin: 0 auto;
-					padding: 3rem;
-					border-radius: 10px;
-					box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-				">
-				<p>
-					Welcome to NodeAuth, this is a role base authentication system that you can use as your boiler plate, but please do not forget to star this project on github thanks for your support. <span><a href="https://github.com/munaray/NodeAuth">github.com/munaray/NodeAuth</a></span>
-				</p>
+			<!-- Table for the Header -->
+			<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: linear-gradient(to right, rgba(209, 213, 219, 0.8), rgba(70, 130, 180, 0.8)); color: #fff; padding: 1rem 0; display: flex; justify-content: center; align-items: center;">
+				<tr>
+					<td align="center">
+						<table width="100%" cellpadding="0" cellspacing="0" border="0" style="display: flex; gap: 1rem; justify-content: center; align-items: center;">
+							<tr>
+								<td align="center">
+									<img src="https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000" alt="nodejs icon" style="width: 40px; height: 40px" />
+								</td>
+								<td align="center">
+									<h1 style="font-size: 25px; margin: 0; padding-left: 0.5rem;">NodeAuth</h1>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
 
-				<p style="padding: 1rem 0 2rem 0; color: rgb(225, 29, 72)">
-					This message is automated please do not reply
-			</article>
-			<footer style="text-align: center; padding-top: 2rem">
-				<div style="margin-top: 1rem">
-					<p
-						style="
-							font-size: medium;
-							color: rgb(156, 163, 175);
-							margin: 0;
-						">
-						&copy;
-						<script>
-							document.write(new Date().getFullYear());
-						</script>
-						Learnaray All rights reserved
-					</p>
-					<p style="margin: 0.5rem 0; padding-bottom: 2rem">
-						<a
-							href="mailto:dummy1215225@gmail.com"
-							style="
-								color: rgb(37, 99, 235);
-								text-decoration: none;
-								margin-right: 10px;
-							"
-							>Contact Us</a
-						>
-						<span style="color: rgb(37, 99, 235)"> | </span>
-						<a
-							href="mailto:dummy1215225@gmail.com"
-							style="
-								color: rgb(37, 99, 235);
-								text-decoration: none;
-								margin-left: 10px;
-							"
-							>Join Our Community</a
-						>
-					</p>
-				</div>
-			</footer>
+			<!-- Table for the Email Body -->
+			<table width="100%" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td align="center" style="padding: 1rem 0;">
+						<table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+							<tr>
+								<td style="padding: 3rem;">
+									<p style="padding-block: 0.5rem; font-size: 16px; line-height: 1.5;">
+										Hi <%= name.split(" ")[0] %>,
+									</p>
+									<p style="font-size: 24px; line-height: 1.5;">
+										Welcome to NodeAuth! 🎉
+									</p>
+									<p style="font-size: 16px; line-height: 1.5;">	I excited to have you on board. Your account has been successfully created, and you're all set to explore this API for your next project but please do not forget to star this project on github. <span><a href="https://github.com/munaray/NodeAuth">github.com/munaray/NodeAuth</a></span/></p>
+									<p style="font-size: 18px;">
+										Thanks For Your Support.
+									</p>
+
+									<p style="color: rgb(225, 29, 72);">This email is Automated do not reply</p>
+
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+
+			<!-- Table for the Footer with Social Media Icons -->
+			<table width="100%" cellpadding="0" cellspacing="0" border="0">
+				<tr style="text-align: center;">
+					<td align="center" style="padding-top: 2rem;">
+						<table width="600" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td align="center">
+									<p style="font-size: medium; color: rgb(156, 163, 175);">
+										&copy;
+										2024
+										NodeAuth All rights reserved
+									</p>
+
+									<!-- Social Media Icons -->
+									<table cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+										<tr>
+											<td>
+												<a href="https://discord.com/learnaray" target="_blank">
+													<img src="https://res.cloudinary.com/dptczga4t/image/upload/v1726908443/discord-brands-solid_rlhxx5.png" alt="Discord" style="width: 20px; height: 20px; background-color: #fff; padding: 10px; border-radius: 40%;" />
+												</a>
+											</td>
+											<td style="padding-left: 10px;">
+												<a href="https://twitter.com/learnaray" target="_blank">
+													<img src="https://res.cloudinary.com/dptczga4t/image/upload/v1726908444/x-twitter-brands-solid_fpmumt.png" alt="Twitter" style="width: 20px; height: 20px; background-color: #fff; padding: 10px; border-radius: 40%;" />
+												</a>
+											</td>
+											<td style="padding-left: 10px;">
+												<a href="https://facebook.com/learnaray" target="_blank">
+													<img src="https://res.cloudinary.com/dptczga4t/image/upload/v1726908444/facebook-f-brands-solid_lrp1f7.png" alt="Facebook" style="width: 20px; height: 20px; background-color: #fff; padding: 10px; border-radius: 40%;" />
+												</a>
+											</td>
+											<td style="padding-left: 10px;">
+												<a href="https://linkedin.com/company/learnaray" target="_blank">
+													<img src="https://res.cloudinary.com/dptczga4t/image/upload/v1726908444/linkedin-brands-solid_uablcg.png" alt="LinkedIn" style="width: 20px; height: 20px;background-color: #fff; padding: 10px; border-radius: 40%;" />
+												</a>
+											</td>
+										</tr>
+									</table>
+
+									<p style="margin: 0.5rem 0; padding-bottom: 2rem;">
+										<a href="mailto:dummy1215225@gmail.com" style="color: rgb(37, 99, 235); text-decoration: none; margin-right: 10px;">Contact Us</a>
+										<span style="color: rgb(37, 99, 235);"> | </span>
+										<a href="mailto:dummy1215225@gmail.com" style="color: rgb(37, 99, 235); text-decoration: none; margin-left: 10px;">Join Our Community</a>
+									</p>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
 		</main>
 	</body>
 </html>

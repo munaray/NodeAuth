@@ -26,6 +26,8 @@ import { redis } from "../utils/redis";
 import "dotenv/config";
 import { getUserById } from "../services/user.service";
 import cloudinary from "cloudinary";
+import crypto from "crypto";
+import { name } from "ejs";
 
 // sign-up user
 export const userRegistration = CatchAsyncError(
@@ -57,7 +59,7 @@ export const userRegistration = CatchAsyncError(
 			try {
 				await mailSender({
 					email: user.email,
-					subject: "Learnaray - Let's complete your account setup",
+					subject: "NodeAuth - Let's complete your account setup",
 					template: "activation-mail.ejs",
 					data,
 				});
@@ -110,7 +112,7 @@ export const activateUser = CatchAsyncError(
 			});
 
 			// Send a welcome email to welcome our new user
-			const data = { name: name };
+			const data = { name: newUser.user.name };
 			await mailSender({
 				email: email,
 				subject: "Welcome to NodeAuth",
@@ -175,6 +177,61 @@ export const userLogout = CatchAsyncError(
 				success: true,
 				message: "You've logged out successfully",
 			});
+		} catch (error: any) {
+			return next(new ErrorHandler(error.message, 400));
+		}
+	}
+);
+
+export const forgetPassword = CatchAsyncError(
+	async (
+		request: Request<{}, {}, UserTypes>,
+		response: Response,
+		next: NextFunction
+	) => {
+		const { email } = request.body;
+
+		try {
+			const user = await User.findOne({ email });
+			if (!user) {
+				return next(new ErrorHandler("User not found", 400));
+			}
+
+			// Generate reset token
+			const resetToken = crypto.randomBytes(32).toString("hex");
+
+			// Hash the reset token and set it to the user schema
+			const hashedResetToken = crypto
+				.createHash("sha256")
+				.update(resetToken)
+				.digest("hex");
+
+			user.resetPasswordToken = hashedResetToken;
+			user.resetPasswordExpire = new Date(Date.now() + 15 * 60 * 1000);
+
+			await user.save({ validateBeforeSave: false });
+
+			// Send reset token to user's email
+			const resetURL = `${process.env.CLIENT_URL}/reset-password/${resetToken}`;
+
+			try {
+				await mailSender({
+					email: email,
+					subject: "Password Reset Request",
+					template: "reset-password-request.ejs",
+					data: { name: user.name, resetURL },
+				});
+
+				response.status(200).send({
+					success: true,
+					message: `Password reset token has been sent to ${email}`,
+				});
+			} catch (error: any) {
+				user.resetPasswordToken = error;
+				user.resetPasswordExpire = error;
+				await user.save({ validateBeforeSave: false });
+				return next(new ErrorHandler("Email could not be sent", 500));
+			}
 		} catch (error: any) {
 			return next(new ErrorHandler(error.message, 400));
 		}
